@@ -8,7 +8,8 @@ namespace CqrsMediaR.Controllers;
 
 public class BaseApiController : Controller
 {
-    private ISender? _mediator;
+    public ProductsController(IMediator mediator) => _mediator = mediator;
+
 
     protected ISender Mediator => _mediator;
 
