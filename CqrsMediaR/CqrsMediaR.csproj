@@ -15,10 +15,13 @@
   <ItemGroup>
     <Compile Remove="WeatherForecast.cs" />
     <Compile Remove="Controllers\WeatherForecastController.cs" />
+    <Compile Remove="Controllers\PersonsController.cs" />
+    <Compile Remove="Controllers\BaseController.cs" />
+    <Compile Remove="Controllers\BaseApiController.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>
