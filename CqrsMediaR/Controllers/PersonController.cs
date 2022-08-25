@@ -23,4 +23,21 @@ public class PersonController : Controller
         return Ok(people);
 
     }
+
+    [HttpGet("{id:int}", Name = "GetPerson")]
+
+    public async Task<ActionResult<Person>> GetPerson(int id)
+    {
+        try
+        {
+            var person = await _mediator.Send(new GetPersonQuery(id));
+
+            return Ok(person);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+       
+    }
 }
