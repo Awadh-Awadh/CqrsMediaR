@@ -2,18 +2,20 @@
 
 namespace Shared.Infra;
 
-public class DataAccess
+public class DataAccess : IDataAccess
 {
     public List<Person> Persons = new();
-
-    public DataAccess()
+   
+    public List<Person> GetAllPersons()
     {
-        Persons.Add(new Person(1, "awadh", "said"));
-        Persons.Add(new Person(2, "mwana", "said"));
-        Persons.Add(new Person(3, "Jamila", "said"));
-        Persons.Add(new Person(4, "shani", "said"));
-    }
+    
+    Persons.Add(new Person(1, "awadh", "said"));
+    Persons.Add(new Person(2, "mwana", "said"));
+    Persons.Add(new Person(3, "Jamila", "said"));
+    Persons.Add(new Person(4, "shani", "said"));
 
+    return Persons;
+    }
 
     public Person InsertPerson(Person person)
     {
