@@ -12,6 +12,6 @@ public static class DependencyInjection
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddMediatR(Assembly.GetExecutingAssembly());
-        services.AddScoped<IDataAccess, DataAccess>();
+        services.AddSingleton<IDataAccess, DataAccess>();
     }
 }
