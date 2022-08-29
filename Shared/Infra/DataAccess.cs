@@ -5,21 +5,33 @@ namespace Shared.Infra;
 public class DataAccess : IDataAccess
 {
     public List<Person> Persons = new();
+
+    public DataAccess()
+    {
+        Persons.Add(new Person(){Id = 1, FirstName = "awadh", LastName = "said"});
+        Persons.Add(new Person(){Id = 2, LastName = "mwana",FirstName = "said"});
+        Persons.Add(new Person() {Id = 3, FirstName = "Jamila", LastName = "said"});
+        Persons.Add(new Person(){ Id = 4, FirstName = "shani", LastName = "said"});
+    }
    
     public List<Person> GetAllPersons()
     {
-    
-    Persons.Add(new Person(1, "awadh", "said"));
-    Persons.Add(new Person(2, "mwana", "said"));
-    Persons.Add(new Person(3, "Jamila", "said"));
-    Persons.Add(new Person(4, "shani", "said"));
-
-    return Persons;
+        return Persons;
     }
 
-    public Person InsertPerson(Person person)
+    public async Task<Person> InsertPerson(string firstName, string lastName)
     {
-       var id = Persons.Max(x => x.Id) + 1;
-       return new Person(id, person.FirstName, person.LastName);
+        var createPerson =  new Person
+        {
+            FirstName = firstName, 
+            LastName = lastName,
+            Id = Persons.Max(x => x.Id) + 1
+        };
+
+         Persons.Add(createPerson);
+
+        await Task.CompletedTask;
+        return createPerson;
+
     }
 }
