@@ -4,7 +4,7 @@ using Shared.DTOs;
 using Shared.Infra;
 using Shared.Models;
 
-namespace Shared.Handers;
+namespace Shared.Handlers;
 
 public class CreatePersonHandler : IRequestHandler<CreatePersonCommand, Person>
 
@@ -18,12 +18,8 @@ public class CreatePersonHandler : IRequestHandler<CreatePersonCommand, Person>
 
     public async Task<Person> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
     {
-        var person = new Person(0, request.FirstName, request.LastName);
-
-        _dataAccess.InsertPerson(person);
-
-        return person;
-
+        return await _dataAccess.InsertPerson(request.FirstName, request.LastName);
+        
     }
 }
 
