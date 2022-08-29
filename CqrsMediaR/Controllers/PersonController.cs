@@ -1,5 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Commands;
+using Shared.DTOs;
 using Shared.Models;
 using Shared.Queries;
 
@@ -39,5 +41,19 @@ public class PersonController : Controller
             return BadRequest(e.Message);
         }
        
+    }
+
+    [HttpPost]
+
+    public async Task<ActionResult<CreatePersonDTO>> CreatePerson([FromBody]CreatePersonDTO request)
+    {
+        var model = new CreatePersonCommand( request.FirstName, request.LastName);
+        
+        return Ok(await _mediator.Send(model));
+
+       
+
+
+
     }
 }
