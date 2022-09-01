@@ -34,4 +34,10 @@ public class DataAccess : IDataAccess
         return createPerson;
 
     }
+
+    public Task EventOccured(Person person, string evt)
+    {
+        Console.WriteLine($"Person {person.FirstName} created and {evt}");
+        return Task.CompletedTask;
+    }
 }
