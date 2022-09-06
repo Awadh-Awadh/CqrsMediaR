@@ -13,5 +13,7 @@ public static class DependencyInjection
     {
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddSingleton<IDataAccess, DataAccess>();
+
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     }
 }
