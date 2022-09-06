@@ -1,3 +1,3 @@
 ﻿namespace Shared.DTOs;
 
-public record CreatePersonDTO(string FirstName, string LastName);
+public record CreatePersonDto(string FirstName, string LastName);

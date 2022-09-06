@@ -51,9 +51,9 @@ public class PersonController : Controller
 
     [HttpPost]
 
-    public async Task<ActionResult<CreatePersonDTO>> CreatePerson([FromBody]CreatePersonDTO request)
+    public async Task<ActionResult<CreatePersonDto>> CreatePerson([FromBody]CreatePersonDto request)
     {
-        var model = new CreatePersonCommand( request.FirstName, request.LastName);
+        var model = new CreatePersonCommand(request.FirstName, request.LastName);
 
         await  _publisher.Publish(new PersonCreatedNotification(model.FirstName, model.LastName));
         

@@ -17,7 +17,7 @@ public class DataAccess : IDataAccess
     public List<Person> GetAllPersons()
     {
         return Persons;
-    }
+    }   
 
     public async Task<Person> InsertPerson(string firstName, string lastName)
     {
